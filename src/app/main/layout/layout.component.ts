@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ModalService } from '../shared/services/modal.service';
 
 @Component({
   selector: 'app-layout',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class LayoutComponent {
 
+  constructor(public modalService: ModalService) { }
 }
+ 

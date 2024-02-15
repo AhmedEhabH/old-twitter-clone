@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SidebarItems } from '../../interface';
+import { ModalService } from '../services/modal.service';
 
 @Component({
   selector: 'sidebar-items',
@@ -36,7 +37,9 @@ import { SidebarItems } from '../../interface';
         </g>
       </svg>
     </div>
-    <div class="mt-6 hidden lg:block px-4 py-2 rounded-full bg-sky-500 hover:bg-opacity-90 cursor-pointer transition">
+    <div
+      (click)="openLoginModal()"
+     class="mt-6 hidden lg:block px-4 py-2 rounded-full bg-sky-500 hover:bg-opacity-90 cursor-pointer transition">
       <p class="text-white text-center font-semibold text-[15px]">
         Tweet
       </p>
@@ -59,4 +62,14 @@ export class SidebarItemsComponent {
       icon: "notifications"
     },
   ]
+
+  constructor(private modalService: ModalService) { }
+
+  openLoginModal(): void {
+    this.modalService.isLoginModalOpen.set(true);
+  }
+
+  signOut(){
+    
+  }
 }
